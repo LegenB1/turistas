@@ -1,14 +1,12 @@
 {% extends 'app/base.html' %}
 {% load static %}
-
+{% load humanize %}
 
 {% block contenido %}
 
 
 <body>
       
-
-<main>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -51,94 +49,55 @@
 <br>
 <br>
 
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
 <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
+  
+      <!-- INCIO DE RUTAS --> 
+      <h1>Rutas para Turistas </h1>
+      <hr class="featurette-divider">
+      <br>   
       <div class="row">
-      <div class="col-lg-4">
-          <img src="{% static 'img/mini1.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-          <h2>Ruta turista 1</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img src="{% static 'img/mini1.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
+            <h2>Ruta turista 1</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
 
-      <div class="col-lg-4">
-          <img src="{% static 'img/mini2.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-          <h2>Ruta turista 2</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-          <img src="{% static 'img/mini3.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-          <h2>Ruta turista 3</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+        <div class="col-lg-4">
+            <img src="{% static 'img/mini2.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
+            <h2>Ruta turista 2</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'img/mini3.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
+            <h2>Ruta turista 3</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>    
+      </div>
+      <br>
+      <br>
+      <br>
 
-
-      <!-- START THE FEATURETTES -->
-
+      <!-- INCIO DE HOTELES -->
+      <h1>Hoteles para Turistas </h1>
+      {% for i in hotel %}
       <hr class="featurette-divider">
-
-      <div class="row featurette">
-      <div class="col-md-7">
-          <h2 class="featurette-heading">Hotel Ibis <span class="text-muted">Errázuriz 811, Valparaíso</span></h2>
-          <p class="lead">Este llamativo hotel, con vistas al puerto deportivo, se encuentra a 4 minutos a pie de la animada plaza Sotomayor y a 2 km de la Casa Museo La Sebastiana, donde vivió Pablo Neruda.</p>
-          <p class="lead">Las habitaciones son tranquilas e incluyen Wi-Fi gratis y televisiones de pantalla plana. Algunas cuentan con vistas al puerto deportivo.</p>
-          <p class="lead">El hotel sirve desayuno de pago y dispone de un bar restaurante moderno abierto las 24 horas, un salón sencillo y centro de negocios. Se admiten mascotas por un suplemento</p>
-      </div>
-      <div class="col-md-5">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'img/hotel.jpg' %}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
-      </div>
-      </div>
-
-      <hr class="featurette-divider">
-          <div class="row featurette">
-              <div class="col-md-7 order-md-2">
-                  <h2 class="featurette-heading">La Galería B&B <span class="text-muted">Pasaje, Templeman, Valparaíso</span></h2>
-                  <tr>
-                      <li class="lead">Wifi gratis</li>
-                      <li class="lead">Desayuno incluido</li>
-                      <li class="lead">Desayuno continental gratuito disponible todos los días de 9:00 a 10:30</li>
-                      <li class="lead">Servicio de habitaciones disponible</li>
-                      <li class="lead">Aparcamiento disponible</li>
-                      <li class="lead">Servicios de lavandería</li>
-                      <li class="lead">Servicio de habitaciones</li>
-                      <li class="lead">Espacios para fumadores</li>
-                      <li class="lead">Aparcamiento en las instalaciones (15.00 USD por noche)</li>
-                  </tr>
-              </div>
-          <div class="col-md-5 order-md-1">
-              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'img/hotel2.jpg' %}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
-          
-          </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-          <div class="row featurette">
+        <div class="row featurette">
           <div class="col-md-7">
-              <h2 class="featurette-heading">Hotel Diego de Almagro Valparaíso <span class="text-muted">Molina, 76, 2340000 Valparaíso</span></h2>
-              <p class="lead">El Hotel Diego de Almagro está situado frente a la costa, en el centro del animado distrito de negocios de Valparaíso. Alberga un restaurante y una piscina cubierta.</p>
-              <p class="lead">Todas las habitaciones del Diego de Almagro disponen de baño privado con secador de pelo. También cuentan con caja fuerte, minibar y TV de pantalla plana. Algunas habitaciones también ofrecen vistas al océano.</p>
-              <p class="lead">El restaurante del hotel sirve una amplia variedad de platos de cocina local e internacional. Los huéspedes podrán tomar una bebida en el bar del hotel o relajarse en el vestíbulo. Hay WiFi gratuita en todas las instalaciones del hotel.</p>
+              <h2 class="featurette-heading">{{ i.nombre | capfirst }}&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
+              <p class="lead">{{ i.descripcion }}</p>
+              <p>{{ i.precio }}</p>
           </div>
-          <div class="col-md-5">
-              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'img/hotel3.jpg' %}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
-          
-          </div>
-          </div>
+          {% if i.imagen %}
+            <div class="col-md-5">
+                <img class="item-image bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="{{ i.imagen.url  }}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
+            </div>
+          {% endif %}        
+        </div>    
+      {% endfor %}
 
-      <hr class="featurette-divider">
-
-  <!-- /END THE FEATURETTES -->
-
-</div><!-- /.container -->
+</div>
 
 {% endblock %}

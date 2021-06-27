@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2>Login</h2>
+                <hr>
+                <form class="form" method="POST">
+            
+                    <table>
+                        
+                        {{ form | crispy }}
+                    </table>
+                    <br> 
+                    <br> 
+                    <br> 
+                    <div class="d-flex justify-content-center">
+                        <button type="reset" id="submit" class="btn btn-danger">Cancelar</button>
+                        &nbsp;
+                        &nbsp;                          
+                        <button type="submit" id="submit"  class="btn btn-primary">Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>
+<br>
+<br> 
+<br> 
+<br> 
+<br>
+{% endblock %}
