@@ -56,26 +56,17 @@
       <hr class="featurette-divider">
       <br>   
       <div class="row">
+        {% for r in ruta %}
         <div class="col-lg-4">
-            <img src="{% static 'img/mini1.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-            <h2>Ruta turista 1</h2>
-            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+          {% if r.imagen %}
+            <img src="{{ r.imagen.url }}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
+          {% endif %}
+            <h2>{{ r.nombre }}</h2>
+            <p>{{ r.descripcion }}</p>
             <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
         </div>
+        {% endfor %}
 
-        <div class="col-lg-4">
-            <img src="{% static 'img/mini2.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-            <h2>Ruta turista 2</h2>
-            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <img src="{% static 'img/mini3.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="">
-            <h2>Ruta turista 3</h2>
-            <p>And lastly this, the third column of representative placeholder content.</p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div>    
-      </div>
       <br>
       <br>
       <br>

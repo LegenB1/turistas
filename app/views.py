@@ -8,10 +8,14 @@ from .forms import CustomUserForms
 # Create your views here.
 def index(request):
     hotel = Hotel.objects.all()
+    ruta = Ruta.objects.all()
     data ={
-        'hotel' : hotel
+        'hotel' : hotel,
+        'ruta': ruta      
     }
-    return render(request, 'app/index.html', data)
+    
+    return render(request, 'app/index.html',data)
+
 
 
 
