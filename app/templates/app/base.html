@@ -54,10 +54,17 @@
           </ul>
 
           <form class="d-flex">
+            {% if user.is_authenticated %}
+                <a class="btn btn-dark">{{ user.username }}</a>
+                &nbsp;
+                &nbsp;
+                <a class="btn btn-dark" href="{% url 'logout' %}">Cerrar Sesión</a> 
+            {% else %}
                 <a class="btn btn-dark" href="{% url 'login' %}"> Iniciar sesión</a> 
                 &nbsp;
                 &nbsp;
-                <a class="btn btn-dark" href="{% url 'registrar' %}"> Registrar</a>        
+                <a class="btn btn-dark" href="{% url 'registrar' %}"> Registrar</a>      
+            {% endif %}  
           </form>
       </div>
       </div>

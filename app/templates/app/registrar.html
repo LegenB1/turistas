@@ -12,7 +12,8 @@
                 <h2>Registrate !!!</h2>
                 <hr>
                 <form class="form" method="POST">
-                    <table>                       
+                    <table>      
+                        {% csrf_token %}                 
                         {{ form | crispy }}
                     </table>
                     <br>
@@ -23,6 +24,10 @@
                         &nbsp;
                         &nbsp;      
                         <button type="submit" id="submit" class="btn btn-primary">Registrarse</button>              
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></p>
                     </div>
                     
                 </form>

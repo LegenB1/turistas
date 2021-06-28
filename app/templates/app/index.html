@@ -79,7 +79,7 @@
           <div class="col-md-7">
               <h2 class="featurette-heading">{{ i.nombre | capfirst }}&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
               <p class="lead">{{ i.descripcion }}</p>
-              <p>{{ i.precio }}</p>
+              <p>${{ i.precio | intcomma }}</p>
           </div>
           {% if i.imagen %}
             <div class="col-md-5">

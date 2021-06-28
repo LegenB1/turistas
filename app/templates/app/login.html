@@ -14,7 +14,7 @@
                 <form class="form" method="POST">
             
                     <table>
-                        
+                        {% csrf_token %}
                         {{ form | crispy }}
                     </table>
                     <br> 
