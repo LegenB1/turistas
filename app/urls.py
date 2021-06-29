@@ -7,4 +7,9 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='app/login.html'), name='login'),
     path('registrar/', views.registrar, name='registrar'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
+    path('listar_hotel/', views.listar_hotel, name='listar_hotel'),
+    path('agregar_hotel/', views.agregar_hotel, name='agregar_hotel'),
+    path('eliminar_hotel/<id>/', views.eliminar_hotel, name='eliminar_hotel'),
+    path('modificar_hotel/<id>/', views.modificar_hotel, name='modificar_hotel'),
+    path('mapa_valpo/', views.mapa_valpo, name='mapa_valpo'),
 ]

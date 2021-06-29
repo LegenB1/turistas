@@ -4,6 +4,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from app import models
 
 
 class CustomUserForms(UserCreationForm):
@@ -20,5 +21,14 @@ class CustomUserForms(UserCreationForm):
         fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
         help_texts = {k:"" for k in fields}
     
+class FormularioHotel(ModelForm):
+    nombre = forms.CharField(label='Nombre')
+    ubicacion = forms.CharField(label='Ubicación')
+    precio = forms.IntegerField(label='Precio')
+    descripcion = forms.Textarea()
+    class Meta:
+        model = models.Hotel
+        fields = ['nombre', 'ubicacion', 'precio', 'descripcion', 'imagen']
+        help_texts = {k:"" for k in fields}
 
 

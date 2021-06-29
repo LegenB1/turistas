@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% load static %} 
+{% load humanize %}      
+{% load crispy_forms_tags %} 
+{% block contenido %}
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2>Modificar Hotel</h2>
+                <div>
+                    <p class="alert alert-success">{{ mensaje }}</p>
+                </div>
+                <form class="form" method="post" enctype="multipart/form-data">
+                    <table>
+                        {% csrf_token %}
+                        {{ form | crispy }}
+
+                    </table>
+                    <br>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-danger" href="{% url 'listar_hotel' %}">Cancelar</a>
+                        &nbsp;
+                        &nbsp;  
+                        <input type="submit" value="Modificar" class="btn btn-primary">
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
