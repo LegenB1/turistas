@@ -12,4 +12,5 @@ urlpatterns = [
     path('eliminar_hotel/<id>/', views.eliminar_hotel, name='eliminar_hotel'),
     path('modificar_hotel/<id>/', views.modificar_hotel, name='modificar_hotel'),
     path('mapa_valpo/', views.mapa_valpo, name='mapa_valpo'),
+    path('lista_categoria/', views.lista_categoria, name='lista_categoria'),
 ]

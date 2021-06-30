@@ -88,6 +88,10 @@ def mapa_valpo(request):
 
     return render(request, 'app/mapa.html')
 
+def lista_categoria(request):
+    
+    return render(request, 'app/lista_categoria.html')
+
 def webpay_plus_create(request):
     print("Webpay Plus Transaction.create")
     buy_order = str(random.randrange(1000000, 99999999))

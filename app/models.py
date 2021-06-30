@@ -5,6 +5,7 @@ class Hotel(models.Model):
     ubicacion = models.CharField(max_length=60)
     precio = models.IntegerField(null=False)
     descripcion = models.TextField()
+    estrellas = models.IntegerField(null=True)
     imagen = models.ImageField(upload_to="hoteles",null=True)
 
     def __str__(self):
