@@ -3,21 +3,26 @@
 {% load humanize %}
 
 {% block contenido %}
-<h1>Hoteles para Turistas </h1>
-      {% for i in hotel %}
-      <hr class="featurette-divider">
-        <div class="row featurette">
-          <div class="col-md-7">
-              <h2 class="featurette-heading"><a href="{% url 'pagina_hotel' i.id %}">{{ i.nombre | capfirst }}</a>&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
-              <p class="lead">{{ i.descripcion }}</p>
-              <p>${{ i.precio | intcomma }}</p>
-          </div>
-          {% if i.imagen %}
-            <div class="col-md-5">
-                <img class="item-image bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="{{ i.imagen.url  }}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
+<div class="container marketing">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Hoteles para Turistas </h1>
+        {% for i in hotel %}
+        <hr class="featurette-divider">
+          <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">{{ i.nombre | capfirst }}&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
+                <p class="lead">{{ i.descripcion }}</p>
+                <p>${{ i.precio | intcomma }}</p>
             </div>
-          {% endif %}        
-        </div>    
-      {% endfor %}
-
+            {% if i.imagen %}
+              <div class="col-md-5">
+                  <img class="item-image bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="{{ i.imagen.url  }}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
+              </div>
+            {% endif %}        
+          </div>    
+        {% endfor %}
+</div>
 {% endblock %}
