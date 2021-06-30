@@ -92,6 +92,14 @@ def lista_categoria(request):
     
     return render(request, 'app/lista_categoria.html')
 
+def categoria_hotel(request, star):
+    hotel = Hotel.objects.filter(estrellas = star)
+    data = {
+
+        'hotel' : hotel,
+    }
+    return render(request, 'app/categoria_hotel.html', data)
+
 def webpay_plus_create(request):
     print("Webpay Plus Transaction.create")
     buy_order = str(random.randrange(1000000, 99999999))
