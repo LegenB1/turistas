@@ -14,4 +14,5 @@ urlpatterns = [
     path('mapa_valpo/', views.mapa_valpo, name='mapa_valpo'),
     path('lista_categoria/', views.lista_categoria, name='lista_categoria'),
     path('categoria_hotel/<star>/', views.categoria_hotel, name='categoria_hotel'),
+    path('hotel/<id>/', views.pagina_hotel, name='pagina_hotel')
 ]
