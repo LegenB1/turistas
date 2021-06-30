@@ -102,32 +102,37 @@ def categoria_hotel(request, star):
 
 def pagina_hotel(request, id):
     hotel = Hotel.objects.get(id = id)
-    data = {
-
-        'hotel' : hotel
-    }
-    return render(request, 'app/pagina_hotel.html', data)
-
-def webpay_plus_create(request):
-    print("Webpay Plus Transaction.create")
     buy_order = str(random.randrange(1000000, 99999999))
     session_id = str(random.randrange(1000000, 99999999))
-    amount = random.randrange(10000, 1000000)
-    return_url = 'http://127.0.0.1:8000/webpay_plus/commit'
+    amount = hotel.precio
+    return_url = 'http://127.0.0.1:8000/commit/'
 
     create_request = {
-        "buy_order": buy_order,
-        "session_id": session_id,
-        "amount": amount,
-        "return_url": return_url
-    }
-    
-    response = Transaction.create(buy_order, session_id, amount, return_url)
+            "buy_order": buy_order,
+            "session_id": session_id,
+            "amount": amount,
+            "return_url": return_url
+            }
 
-    data={
-        'response' : response
+    response = Transaction.create(buy_order, session_id, amount, return_url)
+    data = {
+
+        'hotel' : hotel,
+        'response' : response,
     }
-    
     print(response)
 
-    return render(request,'musicproapp/webpay/create.html', data)
+    return render(request, 'app/pagina_hotel.html', data)
+    
+def webpay_plus_commit(request):
+    token = request.POST.get("token_ws")
+    print("commit for token_ws: {}".format(token))
+
+    response = Transaction.commit(token=token)
+    print("response: {}".format(response))
+
+    data = {
+        'token' : token,
+        'response' : response
+    }
+    return render(request, 'core/commit.html', data)

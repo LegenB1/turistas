@@ -3,19 +3,36 @@
 {% load humanize %}
 
 {% block contenido %}
-<h1 class="featurette-heading">{{ hotel.nombre | capfirst }}</h2> 
+<div class="container marketing">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="featurette-heading">{{ hotel.nombre | capfirst }}</h1> 
     <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-7">
             <span class="text-muted">{{ hotel.ubicacion }}</span>  
             <p class="lead">{{ hotel.descripcion }}</p>
             <p>${{ hotel.precio | intcomma }}</p>
+            {% if user.is_authenticated %}
+            <p>Pagar vía WebPay</p>
+            <p>
+                <form action="{{ response.url }}" method="POST">
+                <input type="hidden" name="token_ws" value="{{ response.token }}">
+                <br>
+                <br>
+                <button class="btn btn-primary" type="submit" value="Ejecutar Pago con Webpay">Reservar</button>
+                </form> 
+            </p>
+            {% endif %}
         </div>
         {% if hotel.imagen %}
         <div class="col-md-5">
             <img class="item-image bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" src="{{ hotel.imagen.url  }}" width="500" height="500" width="100%" height="100%" fill="#eee" alt="">
         </div>
         {% endif %}        
-    </div>    
+    </div>  
+</div>  
 
 {% endblock %}
