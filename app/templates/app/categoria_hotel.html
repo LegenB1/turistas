@@ -8,7 +8,7 @@
       <hr class="featurette-divider">
         <div class="row featurette">
           <div class="col-md-7">
-              <h2 class="featurette-heading">{{ i.nombre | capfirst }}&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
+              <h2 class="featurette-heading"><a href="{% url 'pagina_hotel' i.id %}">{{ i.nombre | capfirst }}</a>&nbsp;<span class="text-muted">{{ i.ubicacion }}</span></h2>   
               <p class="lead">{{ i.descripcion }}</p>
               <p>${{ i.precio | intcomma }}</p>
           </div>
